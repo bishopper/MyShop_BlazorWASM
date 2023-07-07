@@ -1,0 +1,23 @@
+﻿@using MyShop_WASM.Libraries.Product.Models;
+
+
+
+<div class="card col-3 m-2" style="width: 18rem;padding:0">
+    <img src="/images/@Product.Image" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">
+            <a href="@Product.FullUrl">
+                @Product.Name
+            </a>
+        </h5>
+        <p class="card-text">قیمت : @Product.Price</p>
+        <a href="#" class="btn btn-primary">نمایش جزئیات</a>
+    </div>
+</div>
+
+
+
+@code {
+    [Parameter]
+    public ProductModel Product { get; set; }
+}

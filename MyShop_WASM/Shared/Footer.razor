@@ -1,0 +1,14 @@
+﻿<nav class="navbar bg-info">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">حق کپی رایت این فروشگاه با محمد مهدی بهنام مهر است در سال @year</span>
+    </div>
+</nav>
+
+@code {
+    string year = "";
+    protected override Task OnInitializedAsync()
+    {
+        year = DateTime.Now.Year.ToString();
+        return base.OnInitializedAsync();
+    }
+}

@@ -1,0 +1,27 @@
+﻿@using MyShop_WASM.Libraries.Product;
+@using MyShop_WASM.Libraries.Product.Models;
+
+@page "/"
+@inject IProductService productService
+
+<PageTitle>لیست محصولات</PageTitle>
+<p>محصولات ما</p>
+
+@if (products?.Any() ?? false)
+{
+    <div class="row d-flex align-items-center justify-content-center">
+        @foreach (var product in products)
+        {
+            <ProductItem Product="product" />
+        }
+    </div>
+}
+
+@code {
+    public IList<ProductModel>? products { get; set; }
+    protected override Task OnInitializedAsync()
+    {
+        products = productService.GetAll();
+        return base.OnInitializedAsync();
+    }
+}
